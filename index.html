@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Math Web App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1>🧮 Smart Math Web App</h1>
+            <p>Aplikasi interaktif untuk belajar dan menyelesaikan matematika secara praktis.</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs" role="tablist">
+            <button class="tab-btn active" data-tab="tab-geometri">📐 Luas & Keliling</button>
+            <button class="tab-btn" data-tab="tab-kategori">📊 Kategori Nilai</button>
+            <button class="tab-btn" data-tab="tab-analisis">📈 Analisis Nilai</button>
+            <button class="tab-btn" data-tab="tab-faktorial">🔢 Faktorial</button>
+            <button class="tab-btn" data-tab="tab-quiz">📝 Quiz</button>
+        </nav>
+
+        <!-- Tab Contents -->
+        <main class="content-container">
+            <!-- TAB 1: GEOMETRI -->
+            <section id="tab-geometri" class="tab-content active">
+                <div class="card">
+                    <h2>Pilih Jenis Perhitungan</h2>
+                    <p class="description">Pilih apakah ingin menghitung <strong>luas</strong> atau <strong>keliling</strong> bangun datar.</p>
+                    
+                    <div class="form-group">
+                        <label>Jenis Perhitungan</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="jenis_perhitungan" value="Hitung Luas" checked> Hitung Luas
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="jenis_perhitungan" value="Hitung Keliling"> Hitung Keliling
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pilihan_bangun">Pilih Bangun</label>
+                        <select id="pilihan_bangun" class="form-control">
+                            <option value="Persegi">Persegi</option>
+                            <option value="Persegi Panjang">Persegi Panjang</option>
+                            <option value="Segitiga">Segitiga</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="group-input1">
+                        <label id="label-input1" for="angka1">Sisi</label>
+                        <input type="number" id="angka1" class="form-control" placeholder="Masukkan nilai">
+                    </div>
+
+                    <div class="form-group hidden" id="group-input2">
+                        <label id="label-input2" for="angka2">Input 2</label>
+                        <input type="number" id="angka2" class="form-control" placeholder="Masukkan nilai">
+                    </div>
+
+                    <div class="form-group hidden" id="group-input3">
+                        <label id="label-input3" for="angka3">Input 3</label>
+                        <input type="number" id="angka3" class="form-control" placeholder="Masukkan nilai">
+                    </div>
+
+                    <button id="btn-hitung-geometri" class="btn btn-primary">🧮 Hitung</button>
+
+                    <div class="result-group">
+                        <label for="hasil-geometri">Hasil Perhitungan</label>
+                        <textarea id="hasil-geometri" class="form-control" rows="3" readonly></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: KATEGORI NILAI -->
+            <section id="tab-kategori" class="tab-content">
+                <div class="card">
+                    <h2>Kategori Nilai</h2>
+                    <p class="description">Klasifikasikan nilai akademik ke dalam tingkat pencapaian.</p>
+
+                    <div class="form-group">
+                        <label for="input-nilai">Masukkan Nilai</label>
+                        <input type="number" id="input-nilai" class="form-control" placeholder="Contoh: 85">
+                    </div>
+
+                    <button id="btn-cek-kategori" class="btn btn-primary">Cek Kategori</button>
+
+                    <div class="result-group">
+                        <label for="hasil-kategori">Kategori</label>
+                        <input type="text" id="hasil-kategori" class="form-control" readonly>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: ANALISIS NILAI -->
+            <section id="tab-analisis" class="tab-content">
+                <div class="card">
+                    <h2>Analisis Data Nilai</h2>
+                    <p class="description">Masukkan beberapa nilai dipisahkan dengan tanda koma.<br>Contoh: <code>70, 80, 90, 75, 85</code></p>
+
+                    <div class="form-group">
+                        <label for="data-input">Data Nilai</label>
+                        <input type="text" id="data-input" class="form-control" placeholder="70, 80, 90, 75, 85">
+                    </div>
+
+                    <button id="btn-analisis" class="btn btn-primary">Analisis Data</button>
+
+                    <div class="result-group">
+                        <label for="hasil-analisis">Hasil Analisis</label>
+                        <textarea id="hasil-analisis" class="form-control" rows="8" readonly></textarea>
+                    </div>
+
+                    <hr class="divider">
+
+                    <h3>🔎 Pencarian Nilai</h3>
+                    <p class="description">Masukkan nilai yang ingin dicari. Aplikasi akan menunjukkan posisi data tersebut.</p>
+
+                    <div class="form-group">
+                        <label for="target-input">Nilai yang Dicari</label>
+                        <input type="number" id="target-input" class="form-control" placeholder="Contoh: 80">
+                    </div>
+
+                    <button id="btn-cari" class="btn btn-secondary">Cari Nilai</button>
+
+                    <div class="result-group">
+                        <label for="hasil-pencarian">Hasil Pencarian</label>
+                        <textarea id="hasil-pencarian" class="form-control" rows="3" readonly></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: FAKTORIAL -->
+            <section id="tab-faktorial" class="tab-content">
+                <div class="card">
+                    <h2>Hitung Faktorial</h2>
+                    <p class="description">Hitung hasil perkalian faktorial ($n!$) dari bilangan bulat non-negatif.</p>
+
+                    <div class="form-group">
+                        <label for="angka-faktorial">Masukkan Bilangan</label>
+                        <input type="number" id="angka-faktorial" class="form-control" placeholder="Contoh: 5">
+                    </div>
+
+                    <button id="btn-faktorial" class="btn btn-primary">Hitung Faktorial</button>
+
+                    <div class="result-group">
+                        <label for="hasil-faktorial">Hasil</label>
+                        <input type="text" id="hasil-faktorial" class="form-control" readonly>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 5: QUIZ -->
+            <section id="tab-quiz" class="tab-content">
+                <div class="card">
+                    <h2>📝 Quiz Smart Math</h2>
+                    <p class="description">Jawablah setiap soal. <strong>Setiap jawaban benar mendapatkan 20 poin.</strong><br>Anda harus menekan tombol <strong>Periksa Jawaban</strong> sebelum melanjutkan.</p>
+
+                    <div class="quiz-container">
+                        <h3 id="quiz-nomor">Soal 1 dari 5</h3>
+                        <p id="quiz-pertanyaan" class="quiz-question-text"></p>
+
+                        <div id="quiz-options" class="options-group"></div>
+
+                        <div class="quiz-actions">
+                            <button id="btn-periksa-quiz" class="btn btn-primary">✅ Periksa Jawaban</button>
+                            <button id="btn-berikutnya-quiz" class="btn btn-secondary" disabled>➡️ Soal Berikutnya</button>
+                            <button id="btn-mulai-quiz" class="btn btn-success hidden">🔄 Mulai Kembali</button>
+                        </div>
+
+                        <div class="result-group">
+                            <label for="hasil-quiz">Hasil Status</label>
+                            <textarea id="hasil-quiz" class="form-control" rows="3" readonly>Belum diperiksa.</textarea>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
